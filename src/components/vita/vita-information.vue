@@ -37,5 +37,15 @@ export default {
         width: 70vw;
         margin: 2em 0em;
     }
+    @media screen and (max-width: 800px){
+        .information_set{
+            width: 60vw;
+            flex-wrap: wrap;   
+        }
+
+        .information_set_left, .information_set_right{
+            width: 60vw;
+        }
+    }
 
 </style>

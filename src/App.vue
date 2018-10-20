@@ -11,10 +11,10 @@
         </div>
         <app-sidebar :links="menuItems" :usedOverlayID="'#'+overlayProps.ID" :menuHeader="menuLabel"></app-sidebar>
         <div id="page-header">
-            <img class="menu_buttons" id="menubutton" src="./assets/images/menu_button.svg" alt="Menu Button" @click="toggleMenu" />
+            <div><img class="menu_buttons" id="menubutton" src="./assets/images/menu_button.svg" alt="Menu Button" @click="toggleMenu" /></div>
             <h1 id="page-title">{{headingLabel}}</h1>
             <div id="page-madewith"><p>Proudly made with VUE</p></div>
-            <img id="page-madewith-logo" src="./assets/images/Vue.js_Logo.svg" alt="Vue Logo" />
+            <div><img id="page-madewith-logo" src="./assets/images/Vue.js_Logo.svg" alt="Vue Logo" /></div>
         </div>
         <div id="content-wrapper">
             <app-vita v-for="(item, key) in vitaItems" :singlevita="item" :itemid="key" :key="item.id"></app-vita>
@@ -195,8 +195,11 @@ html, body{
 #page-madewith{
     grid-column: madewith;
     font-weight: bold;
-    vertical-align: middle;
     text-align: center;
+}
+
+#page-madewith > p{
+    margin: 0;
 }
 
 #page-madewith-logo{
@@ -218,32 +221,35 @@ a {
     display: none;
 }
 
+#page-header > div {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
 @media print {
     #page-content {
         margin: 0;
-        }
+    }
 
     #page-sidebar {
         display: none;
-        }
+    }
 
     h1, h2, h3, h4, h5, h6, #page-header {
         font-family: $heading-font !important;
         -webkit-print-color-adjust: exact;
-        } 
-    }
+    } 
+}
 
 @media screen and (max-width: 800px) {
     #inner-page{
         grid-template-columns: [sidebar] $mobile-sidebar-grid [page-content] 30vw;
+        grid-column-gap: 0;
     }
 
     #page-header{
         grid-template-columns: [button] 10vw [heading] 70vw [madewith] 10vw [madelogo] 10vw;
-    }
-
-    #page-header > img, #page-header > div {
-        margin-top: 1vh;
     }
 
     #menubutton {
@@ -272,5 +278,16 @@ a {
     #content-wrapper {
         grid-column: sidebar / 3;
     }
+}
+
+@media screen and (max-width: 400px){
+    #page-header {
+        grid-template-columns: [button] 18vw [heading] 55vw [madewith] 17vw [madelogo] 10vw;
+    }
+
+    #page-madewith{
+        font-size: 0.65em;
+    }
+
 }
 </style>
