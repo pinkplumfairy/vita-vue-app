@@ -1,0 +1,37 @@
+{
+  "name": "vitahedderich",
+  "description": "Lebenslauf von Olga Hedderich",
+  "version": "2.0.0",
+  "author": "Olga Hedderich",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "input-range-scss": "^1.5.1",
+    "svg-url-loader": "^2.3.2",
+    "vue": "^2.5.17",
+    "vue-mq": "^0.2.1",
+    "vue-scrollto": "^2.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  }
+}
