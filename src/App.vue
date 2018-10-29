@@ -68,19 +68,10 @@ export default {
     }).then(response => 
     {
         if(response.data.result === 'noupdate'){
-            this.vitaItems = JSON.parse(localStorage.getItem('vita'));
-            this.menuItems = this.getmenuItems(this.vitaItems);
-            this.headingLabel = localStorage.getItem('header');
-            this.menuLabel = localStorage.getItem('menu');
+            this.getDataFromLocalStorage();
         }else if(response.data.result === 'update'){
-            localStorage.setItem('vita', JSON.stringify(response.data.data.vita));
-            localStorage.setItem('version',response.data.version);
-            localStorage.setItem('header',response.data.data.heading);
-            localStorage.setItem('menu',response.data.data.menu);
-            this.vitaItems = JSON.parse(localStorage.getItem('vita'));
-            this.menuItems = this.getmenuItems(this.vitaItems);
-            this.headingLabel = localStorage.getItem('header');
-            this.menuLabel = localStorage.getItem('menu');
+            this.writeDataToLocalStorage(response);
+            this.getDataFromLocalStorage();
         }else{
             console.log(response);
             this.apiErrorHandling.errorDetails = response.data;
@@ -91,8 +82,7 @@ export default {
         {
             if(version !== "null")
             {
-                this.vitaItems = JSON.parse(localStorage.getItem('vita'));
-                this.menuItems = this.getmenuItems(this.vitaItems);
+                this.getDataFromLocalStorage();
                 this.apiErrorHandling.showingCachedVersion = true;
             }else{
                 this.apiErrorHandling.dataFetchError = true;
@@ -112,7 +102,7 @@ export default {
       toggleMenu: function(){
           this.$bus.$emit('menuAnimationEvent');
       },
-      getmenuItems: function (inputList) {
+      getMenuItems: function (inputList) {
           var menuItems = [];
           for (const key in inputList) {
               if (inputList.hasOwnProperty(key)) {
@@ -121,6 +111,18 @@ export default {
               }
           }
           return menuItems; 
+      },
+      getDataFromLocalStorage: function (){
+        this.vitaItems = JSON.parse(localStorage.getItem('vita'));
+        this.menuItems = this.getMenuItems(this.vitaItems);
+        this.headingLabel = localStorage.getItem('header');
+        this.menuLabel = localStorage.getItem('menu');
+      },
+      writeDataToLocalStorage: function(response){
+        localStorage.setItem('vita', JSON.stringify(response.data.data.vita));
+        localStorage.setItem('version',response.data.version);
+        localStorage.setItem('header',response.data.data.heading);
+        localStorage.setItem('menu',response.data.data.menu);
       }
   }
 }
@@ -228,18 +230,46 @@ a {
 }
 
 @media print {
-    #page-content {
-        margin: 0;
+
+    a[href*='//']:after {
+        content:" (Original Link: " attr(href) ") ";
     }
 
-    #page-sidebar {
-        display: none;
+    #page-content {
+        margin: 0;
     }
 
     h1, h2, h3, h4, h5, h6, #page-header {
         font-family: $heading-font !important;
         -webkit-print-color-adjust: exact;
-    } 
+        color-adjust: exact;
+    }
+
+    a {
+        page-break-inside: avoid;
+        display: block;
+    }
+
+    #inner-page{
+        grid-template-columns: [sidebar] 0vw [page-content] 100vw;
+        grid-template-rows: [header] 10vh [page-content] 90vh;
+        grid-column-gap: 0vw;
+        max-height: unset;
+    }
+
+    #content-wrapper{
+        grid-column: page-content / 3;
+        grid-row: page-content;
+        max-height: unset;
+        overflow-y: unset;
+    }
+    #page-header {  
+        grid-template-columns: [button] 25vw [heading] 50vw [madewith] 20vw [madelogo] 5vw;
+    }
+
+    #page-madewith, #page-madewith > p, #page-madewith-logo, .apiMessage{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 800px) {

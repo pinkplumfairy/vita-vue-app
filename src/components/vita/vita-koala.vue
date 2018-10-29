@@ -103,8 +103,8 @@ svg.koala {
 }
 
 @media print {
-    svg.koala {
-        display: none;
+    .koala {
+        display: none !important;
     }
 }
 </style>

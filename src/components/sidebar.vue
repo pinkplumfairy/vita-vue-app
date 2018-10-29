@@ -218,4 +218,10 @@ export default {
     }
 }
 
+@media print{
+    #page-sidebar {
+        display: none;
+    }
+}
+
 </style>

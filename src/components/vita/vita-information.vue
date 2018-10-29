@@ -48,4 +48,21 @@ export default {
         }
     }
 
+    @media print {
+        .item_information{
+            margin-left: 15vw;
+        }
+
+        .information_set{
+            width: 60vw;
+            display: block;
+            page-break-inside: avoid;
+        }
+
+        .information_set_left, .information_set_right{
+            width: 60vw;
+            margin-top: 0.5em;
+        }
+    }
+
 </style>

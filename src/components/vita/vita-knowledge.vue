@@ -109,4 +109,33 @@ export default {
     }
 }
 
+@media print {
+    .vita_knowledge{
+        page-break-inside: avoid;
+        display: block;
+    }
+    
+    .knowledge_set{
+        width: 60vw;
+        display: block;
+        margin-left: 20vw;
+    }
+
+    .knowledge_set_left, .bar_inside{
+        width: 60vw;
+    }
+
+    .knowledge_bar {
+        background-color: $light-action-color !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .top_knowledge_bar {
+        background-color: $action-color !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+}
+
 </style>

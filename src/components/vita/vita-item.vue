@@ -1,5 +1,5 @@
 <template>
-    <div :id="itemid" class="table_align vita_information">
+    <div :id="itemid" class="table_align vita_item">
         <vita-koala v-if="singlevita.animatable == 1" :idsuffix="itemid"></vita-koala>
         <h2 v-if="singlevita.animatable == 1" @click="startKoala(itemid)">{{singlevita.text}}</h2>
         <h2 v-else @click="startKoala(itemid)">{{singlevita.text}}</h2>
@@ -55,7 +55,7 @@ export default {
     padding: 0.75em 0em;
 }
 
-.vita_information {
+.vita_item {
     background-color: $secondary-background-color;
     border-radius: 1.25em;
     border-style: solid;
@@ -70,24 +70,21 @@ export default {
 }
 
 @media print {
-
-    .knowledge_bar {
-        background-color: $heading-background-color !important;
-        -webkit-print-color-adjust: exact;
-        width: 80%;
-    }
-
-    .top_knowledge_bar {
-        background-color: $action-color !important;
-        -webkit-print-color-adjust: exact;
-    }
-
-    .table_align {
+    .table_align h2, .table_align h3 {
         page-break-inside: avoid;
+        page-break-after: avoid;
     }
 
-    #itknowledge {
-        page-break-inside: auto;
+    .table_align h2{
+        margin-left: 15vw;
+    }
+
+    .table_align h3{
+        margin-left: 20vw;
+    }
+
+    .vita_item{
+        display: block;
     }
 }
 
