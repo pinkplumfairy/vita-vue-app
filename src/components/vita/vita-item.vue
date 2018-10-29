@@ -85,6 +85,8 @@ export default {
 
     .vita_item{
         display: block;
+        margin-top: 1em;
+        margin-bottom: 0em;
     }
 }
 
