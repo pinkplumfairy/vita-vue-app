@@ -11,11 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Exportiere Datenbank Struktur für vita_morskov_de
-CREATE DATABASE IF NOT EXISTS `vita_morskov_de` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_general_ci */;
-USE `vita_morskov_de`;
-
 -- Exportiere Struktur von Tabelle vita_morskov_de.knowledge_level
 CREATE TABLE IF NOT EXISTS `knowledge_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -50,12 +45,12 @@ CREATE TABLE IF NOT EXISTS `skills` (
   CONSTRAINT `skill_level` FOREIGN KEY (`level`) REFERENCES `knowledge_level` (`name`),
   CONSTRAINT `skill_translation` FOREIGN KEY (`name`) REFERENCES `text_translations` (`name`),
   CONSTRAINT `skill_type` FOREIGN KEY (`type`) REFERENCES `skill_type` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle vita_morskov_de.skill_type
 CREATE TABLE IF NOT EXISTS `skill_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `text` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `vita_type` varchar(25) COLLATE latin1_general_ci DEFAULT NULL,
@@ -65,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `skill_type` (
   KEY `sktype_vitype` (`vita_type`),
   CONSTRAINT `sktype_translation` FOREIGN KEY (`text`) REFERENCES `text_translations` (`name`),
   CONSTRAINT `sktype_vitype` FOREIGN KEY (`vita_type`) REFERENCES `vita_type` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle vita_morskov_de.system
@@ -84,14 +79,14 @@ CREATE TABLE IF NOT EXISTS `system` (
 -- Exportiere Struktur von Tabelle vita_morskov_de.text_translations
 CREATE TABLE IF NOT EXISTS `text_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text` varchar(600) COLLATE latin1_general_ci NOT NULL,
+  `text` varchar(1000) COLLATE latin1_general_ci NOT NULL,
   `language` char(2) COLLATE latin1_general_ci NOT NULL,
   `name` varchar(25) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`,`language`),
   KEY `language` (`language`),
   CONSTRAINT `translation_language` FOREIGN KEY (`language`) REFERENCES `language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle vita_morskov_de.vita_elements
@@ -107,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `vita_elements` (
   CONSTRAINT `vita_name_translation` FOREIGN KEY (`name`) REFERENCES `text_translations` (`name`),
   CONSTRAINT `vita_type_fk` FOREIGN KEY (`type`) REFERENCES `vita_type` (`name`),
   CONSTRAINT `vita_value_translation` FOREIGN KEY (`value`) REFERENCES `text_translations` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle vita_morskov_de.vita_type
