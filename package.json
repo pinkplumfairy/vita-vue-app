@@ -1,7 +1,7 @@
 {
   "name": "vitahedderich",
   "description": "Lebenslauf von Olga Hedderich",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "author": "Olga Hedderich",
   "private": true,
   "scripts": {
