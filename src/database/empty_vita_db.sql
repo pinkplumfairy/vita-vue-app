@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `skills` (
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle vita_morskov_de.skill_type
 CREATE TABLE IF NOT EXISTS `skill_type` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `text` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `vita_type` varchar(25) COLLATE latin1_general_ci DEFAULT NULL,

@@ -129,6 +129,7 @@ export default {
 </script>
 <style lang="scss">
 @import "./styles/settings.scss";
+@import "./assets/fonts/fontsheet.css";
 html, body{
     height:100%;
     margin: 0;
@@ -310,7 +311,7 @@ a {
     }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 450px){
     #page-header {
         grid-template-columns: [button] 18vw [heading] 55vw [madewith] 17vw [madelogo] 10vw;
     }

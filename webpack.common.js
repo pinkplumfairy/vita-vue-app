@@ -44,7 +44,7 @@ const path = require('path');
         },
         {
           test: /\.(svg)$/,
-          exclude: /fonts/, /* dont want svg fonts from fonts folder to be included */
+          exclude: [/fonts/], /* dont want svg fonts from fonts folder to be included */
           use: [
             {
               loader: 'svg-url-loader',
@@ -55,9 +55,11 @@ const path = require('path');
           ],
         },
         {
-            test: /\.(eot|ttf|woff|woff2)$/,
+            test: /\.(eot|ttf|woff|woff2|svg)$/,
+            include: [/fonts/],
             loader: 'file-loader',
             options: {
+              limit: 50000,
               name: 'public/fonts/[name].[ext]?[hash]'
             }
         },

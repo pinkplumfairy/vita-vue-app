@@ -133,6 +133,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/settings.scss";
+@import "../assets/fonts/fontsheet.css";
 #page-sidebar{
 	text-align: center;
 	background-color: $secondary-background-color;

@@ -1,8 +1,8 @@
 <template>
     <div :id="itemid" class="table_align vita_item">
         <vita-koala v-if="singlevita.animatable == 1" :idsuffix="itemid"></vita-koala>
-        <h2 v-if="singlevita.animatable == 1" @click="startKoala(itemid)">{{singlevita.text}}</h2>
-        <h2 v-else @click="startKoala(itemid)">{{singlevita.text}}</h2>
+        <h2 v-if="singlevita.animatable == 1" @click="startKoala(itemid)" class="click_me">{{singlevita.text}}</h2>
+        <h2 v-else>{{singlevita.text}}</h2>
         <vita-table v-if="typeof singlevita.values !== 'undefined' && singlevita.values.length > 0" :item="singlevita.values"></vita-table>
         <vita-knowledge v-if="typeof singlevita.skills !== 'undefined' && Object.keys(singlevita.skills).length > 0"  v-for="skill in singlevita.skills" :key="skill.id" :skills="skill"></vita-knowledge>
     </div>
@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss">
 @import "../../styles/settings.scss";
+@import "../../assets/fonts/fontsheet.css";
 
 .table_align h2, .table_picture h2 {
     text-align: center;
@@ -67,6 +68,10 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
+}
+
+.click_me{
+    cursor: pointer;
 }
 
 @media print {

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('Raleway-Regular.eot');
+    src: local('Raleway'), local('Raleway-Regular'),
+        url('Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Raleway-Regular.woff2') format('woff2'),
+        url('Raleway-Regular.woff') format('woff'),
+        url('Raleway-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('Raleway-Bold.eot');
+    src: local('Raleway Bold'), local('Raleway-Bold'),
+        url('Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Raleway-Bold.woff2') format('woff2'),
+        url('Raleway-Bold.woff') format('woff'),
+        url('Raleway-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Italic.eot');
+    src: local('Lato Italic'), local('Lato-Italic'),
+        url('Lato-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Lato-Italic.woff2') format('woff2'),
+        url('Lato-Italic.woff') format('woff'),
+        url('Lato-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.eot');
+    src: local('Lato Regular'), local('Lato-Regular'),
+        url('Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Lato-Regular.woff2') format('woff2'),
+        url('Lato-Regular.woff') format('woff'),
+        url('Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Bold.eot');
+    src: local('Lato Bold'), local('Lato-Bold'),
+        url('Lato-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Lato-Bold.woff2') format('woff2'),
+        url('Lato-Bold.woff') format('woff'),
+        url('Lato-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-BoldItalic.eot');
+    src: local('Lato Bold Italic'), local('Lato-BoldItalic'),
+        url('Lato-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Lato-BoldItalic.woff2') format('woff2'),
+        url('Lato-BoldItalic.woff') format('woff'),
+        url('Lato-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
